@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incredible India</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./shrishti/contact.css">
+    <style> 
+        *
+        {
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            overflow: auto;
+            width: 100%;
+        }
+        .logo
+        {
+            display: inline-block;
+            float: left;
+            margin-right: 30px;
+            margin-left: 40px;
+        }
+        .header ul{
+            display: inline-flex;
+            background-color: gray;
+            width: 100%;
+        }
+        .header ul li{
+            font-size: 20px;
+            list-style-type: none;
+            padding-top: 2%;
+            padding-left: 7%;
+            text-align: center;
+            align-items: center;
+        }
+        .header ul li a
+        {
+            text-decoration: none;
+            color:white;
+            font-size: 120%;
+            text-align: center;
+            align-items: center;
+        }
+        .fa
+        {
+            margin-right: 5px;
+        }
+        .header ul li a:hover
+        {
+            color: lightblue;
+            border-bottom: 2px solid black;
+            
+        }
+        
+        .slideshow-container .row
+        {
+            height: 88vh;
+            background-color: rgba(0,0,0,0.8);
+        }
+        .prev, .next
+        {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: rgb(252, 252, 252);
+            font-weight:bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .next
+        {
+            right: 0;
+        }
+        .right-text h1:nth-child(1)
+        {
+            display: flex;
+            justify-content:left;
+            align-items: left;
+            text-align:left;
+            font-size: 60px;
+            margin-top: 90%;
+            background-image: linear-gradient(to bottom, orange, white, green);   
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; 
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+        }
+        .right-text h1:nth-child(2)
+        {
+            display: flex;
+            justify-content:left;
+            align-items: center;
+            text-align:left;
+            font-size: 60px;
+            background-image: linear-gradient(to bottom, orange, white, green);   
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; 
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+        }
+        .right-text h1
+        {
+            color: transparent;
+            animation: textshow 0.5s ease forwards;
+            animation-delay: 2s;
+            position: relative;
+            font-size: 800px;
+            letter-spacing: 5px;
+        }
+        .right-text h1:nth-child(1)
+        {
+            animation-delay: 1s;
+        }
+        .right-text h1:nth-child(2)
+        {
+            animation-delay: 2s;
+        }
+        @keyframes textshow 
+        {
+            100%
+            {
+                color: white;
+            }
+        }
+        .right-text h1 span
+        {
+            position: absolute;
+            left: 100;
+            height: 100%;
+            width: 0;
+            background-image: linear-gradient(rgb(255, 166, 0), rgb(245, 245, 240), green);
+            animation: boxshow 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+        .right-text h1:nth-child(1) span
+        {
+            animation-delay: 0.5s;
+        }
+        .right-text h1:nth-child(2) span
+        {
+            animation-delay: 1.5s;
+        }
+        @keyframes boxshow
+        {
+            50% 
+            {
+            	width: 100%;
+            	left: 0;
+        	}
+        	100% 
+            {
+                width: 0;
+                left: 100%;
+        	}
+        }
+        /* animations */
+        @keyframes slideInRight
+        {
+            from
+            {
+                transform: translate3d(100%, 0, 0);
+                visibility: visible;
+            }
+            to
+            {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+        @keyframes slideInleft
+        {
+            from
+            {
+                transform: translate(-110%,0px);
+                visibility: visible;
+            }
+            to
+            {
+                transform: translate(10px,0px);
+            }
+        }
+        .myslides
+        {
+            position: relative;
+        }
+        .right-text
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        /* @media(max-width:1380px)
+        {
+            .header ul li
+            {
+                padding: 9px 35px;
+            }
+        }
+        @media(max-width:1220px)
+        {
+            
+            .header ul li
+            {
+                
+                padding: 9px 20px;
+            }
+        }
+        @media(max-width:1100px)
+        {
+            .header ul li
+            {
+                padding: 9px 10px;
+            }
+            .left-text h1
+            {
+                font-size: 100px;
+            }
+            .right-text h1
+            {
+                font-size: 100px;
+            }
+        }
+        @media(max-width:769px)
+        {
+            .header ul li
+            {
+                padding: 9px 10px;
+            }
+            .left-text h1
+            {
+                font-size: 100px;
+            }
+            .right-text h1
+            {
+                font-size: 100px;
+            }
+        }
+        @media (max-width: 400px) {
+            
+        .logo
+        {
+            display: flex;
+            float: left;
+        }
+        .header ul{
+            display: flex;
+            background-color: gray;
+            margin: auto;
+            width: 100%;
+            height: 5%;
+        }
+        .header ul li{
+            font-size: 10px;
+            list-style-type: none;
+            padding-left: 10px;
+            padding-right: 5px;
+            padding-top: 5px;
+            margin-top: 10px;
+        }
+        .header ul li a
+        {
+            text-decoration: none;
+            color: black;
+        }  
+        }
+        @media (max-width: 769px) {
+            body{
+            width: 100%;
+        }
+        .logo
+        {
+            display: flex;
+            float: left;
+            margin-right: 20px;
+            margin-left: 30px;
+        }
+        .header ul{
+            display: flex;
+            background-color: gray;
+            margin: auto;
+            width: 100%;
+            height: 5%;
+        }
+        .header ul li{
+            font-size: 20px;
+            list-style-type: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .header ul li a
+        {
+            text-decoration: none;
+            color:white;
+        }  
+        } */
+    </style>
+    <script>
+        
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        function plusSlides(n) 
+        {
+            showSlides(slideIndex += n);
+        }
+        function showSlides(n) 
+        {
+            var i;
+            var slides = document.getElementsByClassName("myslides");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) 
+            {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 2000);
+        }
+     
+    </script>
+</head>
+<body>
+    <header class="header" id="header">
+        <ul>
+            <div class="logo">
+                <h1><span
+                        style="color: rgb(236, 86, 27); font-size: 50px; font-weight: 900;">T</span><span>o</span><span
+                        style="color: rgb(20, 228, 20); font-weight: 700;">ur</span><span
+                        style="color: rgb(236, 86, 27); font-size: 50px; font-weight: 9000;">I</span>nd<span
+                        style="color: rgb(20, 228, 20); font-weight: 900;">ia</span><span
+                        style="color:rgb(20, 228, 20); font-weight: 900">!</span><span
+                        style="color:rgb(236, 86, 27); font-weight: 900;">!</span></h1>
+            </div>
+            <li><a href="index.html"><i class="fa fa-home" ></i>Home</a></li>
+            <li><a href="./saijal/about.html"><i class="fa fa-user"></i>About us</a></li>
+            <li><a href="./shrishti/services.html"><i class="fa fa-server"></i>service+</a></li>
+            <li><a href="./Aman/Socialmedia.html"><i class="fa fa-sign-in"></i>Login</a></li>
+            <li><a href="#contact"><i class="fa fa-address-book"></i>Contact Us</a></li>
+        </ul>
+    </header>
+    <section>
+        <div class="slideshow-container">
+            <div class="row myslides">
+                <div class="col-lg-8">
+                    <img src="./assests/tajmahal.jpg" alt="TAJMAHAL" width="100%" height="550vh">
+                </div>
+                <div class="col-lg-4 right-text">
+                    <h1>Incredible <span></span></h1>
+                    <h1>India !!<span></span></h1>
+                </div>
+            </div>
+
+            <div class="row myslides" style="display: none;">
+                <div class="col-lg-8 ">
+                    
+                    <img src="./assests/prem mandir.jpg" alt="golden temple" width="100%" height="550vh">
+                </div>
+                <div class="col-lg-4 right-text">
+                    <h1>Incredible <span></span></h1>
+                    <h1>India !!<span></span></h1>
+                </div>
+            </div>
+
+            <div class="row myslides" style="display: none;">
+                <div class="col-lg-8 ">
+                    
+                    <img src="./assests/2399196.jpg" alt="hawa mahal" width="100%" height="550vh">
+                    
+                </div>
+                <div class="col-lg-4 right-text">
+                    <h1>Incredible <span></span></h1>
+                    <h1>India !!<span></span></h1>
+                </div>
+            </div>
+            <div class="row myslides" style="display: none;">
+                <div class="col-lg-8 ">
+                    <img src="./assests/delhi.jpg" alt="india gate" width="100%" height="550vh">
+        
+                </div>
+                <div class="col-lg-4 right-text">
+                    <h1>Incredible <span></span></h1>
+                    <h1>India !!<span></span></h1>
+                </div>
+            </div>
+        </div>
+    
+         <a class="prev" style="color: white;" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" style="color: white;" onclick="plusSlides(1)">&#10095;</a>
+
+        <div style="text-align:center">
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+            <span class="dot"></span> 
+        </div>
+    </section>
+    <footer class="footer">
+    <section class="contact" id="contact">
+    <div class="container">
+        <div class="contactInfo">
+            <div class="box">
+                <div class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>Address</h3>
+                    <p>4671 Sugar Camp Road, <br> Owatonna, Minnesota, <br>55060</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-phone" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>Phone</h3>
+                    <p>507-475-6094</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></div>
+                <div class="text">
+                    <h3>Email</h3>
+                    <p>incredibleindia@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="contactForm">
+            <form>
+                <h2>Send Message</h2>
+                <div class="inputBox">
+                    <input type="text" name="" required="required" placeholder="Full name">
+                    
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="" required="required" placeholder="E-mail">
+                    
+                </div>
+                <div class="inputBox">
+                    <textarea required="required" placeholder="Type your message"></textarea>
+                    
+                </div>
+                <div class="inputBox">
+                    <input type="submit" name="" value="Send">
+                </div>
+            </form>
+        </div>
+        
+</div>
+<div style="background-color: black;color: white;text-align: center; width: 100%;padding-top: 10px; padding-bottom: 10px; height: 10%;font-size: 15px; position: absolute; bottom: 0%;">
+    <p>
+        Copyright © 2021 All Rights Reserved by
+        <a href="./index.html">www.IncredibalIndia.com.</a>
+      </p>
+</div>
+</section>
+    </footer>
+        
+</div>
+</section>
+</html>
+    
